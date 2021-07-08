@@ -15,6 +15,7 @@ namespace MasterGUI
         public Form1()
         {
             InitializeComponent();
+            panel3.Controls.Add(new CalendarNote("test", "test",panel3.Width,panel3.Height));
         }
     }
 }

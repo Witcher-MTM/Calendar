@@ -14,55 +14,43 @@ namespace MasterGUI
     public partial class AddSettings : Form
     {
 
-        CalendarNote note = new CalendarNote("Enter title", "Enter text", "test");
+        CalendarNote note = new CalendarNote("Enter title", "Enter text");
        
         public AddSettings()
         {
             InitializeComponent();
-           
+            File.WriteAllText("TmpTitle.txt", "NULL");
+            File.WriteAllText("TmpText.txt", "NULL");
         }
 
       
         private void accBtn_Click(object sender, EventArgs e)
         {
+
             var a = Manager.notes.Find(x => x.NoteName.Equals(File.ReadAllText("TmpTitle.txt")));
             if (a == null) 
             {
-                if (MessageBox.Show($"Добавить эту замтеку на {dateTimePicker1.Text}", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (File.ReadAllText("TmpText.txt") == "NULL" || File.ReadAllText("TmpTitle.txt") == "NULL")
                 {
-                    if (note.Boxtext.Text.Length != 0 && note.Boxtitle.Text.Length != 0)
+                        MessageBox.Show("Невозможно создать пустую заметку");
+                }
+                else
+                {
+                    if (MessageBox.Show($"Добавить эту замтеку на {dateTimePicker1.Text}", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         Manager.CreateNote(File.ReadAllText("TmpTitle.txt"), File.ReadAllText("TmpText.txt"), dateTimePicker1.Value.Date);
-
                         this.Dispose();
                     }
-                    else
-                    {
-                        MessageBox.Show("Невозможно создать пустую заметку");
-                    }
-
                 }
             }
             else
             {
                 MessageBox.Show("Такая заметка есть!");
             }
-           
-            
-          
         }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void AddSettings_Load(object sender, EventArgs e)
         {
-            CalendarNote note = new CalendarNote("Enter title", "Enter text", "test");
-         
             this.Controls.Add(note);
-           
         }
     }
 }

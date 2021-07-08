@@ -60,9 +60,9 @@ namespace MasterGUI
             this.Controls.Add(BoxTime);
           
         }
-        public CalendarNote(string text, string name,string time) : base()
+        public CalendarNote(string text, string name) : base()
         {
-            BoxTime = new TextBox();
+          
             Boxtext = new TextBox();
             Boxtitle = new TextBox();
            
@@ -90,14 +90,11 @@ namespace MasterGUI
           
 
 
-            BoxTime.Text = time;
-            BoxTime.Location = new Point(0, 120);
-            BoxTime.Size = new Size(this.Width, 20);
-            BoxTime.Visible = true;
+            
 
             Boxtext.TextChanged += Boxtext_TextChanged;
             Boxtitle.TextChanged += Boxtitle_TextChanged;
-            this.Controls.Add(BoxTime);
+         
             this.Controls.Add(Boxtext);
             this.Controls.Add(Boxtitle);
             this.Controls.Add(BoxTime);

@@ -129,8 +129,18 @@ namespace MasterGUI
         {
             if(e.KeyCode == Keys.Enter)
             {
-                panel3.Controls.Remove(notes.Find(x => x.Boxtitle.Text.Equals(textBox1.Text)));
-                notes.Remove(notes.Find(x => x.Boxtitle.Text.Equals(textBox1.Text)));
+                if(notes.Find(x => x.Boxtitle.Text.Equals(textBox1.Text)) != null)
+                {
+                    panel3.Controls.Remove(notes.Find(x => x.Boxtitle.Text.Equals(textBox1.Text)));
+                    Manager.DeleteNote(notes.Find(x => x.Boxtitle.Text.Equals(textBox1.Text)).Boxtitle.Text);
+                    notes.Remove(notes.Find(x => x.Boxtitle.Text.Equals(textBox1.Text)));
+                    textBox1.Visible = false;
+                }
+                if (notes.Count != 0)
+                    notes.First().Visible = true;
+
+
+
               
                
             }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +13,8 @@ namespace MasterGUI
     {
 
         public TextBox Boxtitle;
-        private TextBox Boxtext;
-        private TextBox BoxTime;
+        public TextBox Boxtext;
+        public TextBox BoxTime;
         public CalendarNote()
         {
 
@@ -43,6 +44,7 @@ namespace MasterGUI
             Boxtext.Size = new Size(this.Width, 80);
             Boxtext.Location = new Point(0, 40);
             Boxtext.Visible = true;
+           
 
             BoxTime.Text = time.ToString();
             BoxTime.Font = new Font("Times New Roman", 8, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -50,12 +52,13 @@ namespace MasterGUI
             BoxTime.Size = new Size(this.Width, 20);
             BoxTime.Location = new Point(0, 120);
             BoxTime.Visible = true;
-
+            Boxtitle.ReadOnly = true;
+            Boxtext.ReadOnly = true;
+            BoxTime.ReadOnly = true;
             this.Controls.Add(Boxtext);
             this.Controls.Add(Boxtitle);
             this.Controls.Add(BoxTime);
-            this.Click += CalendarNote_Click;
-            this.Paint += CalendarNote_Paint;
+          
         }
         public CalendarNote(string text, string name,string time) : base()
         {
@@ -76,6 +79,7 @@ namespace MasterGUI
             Boxtitle.Size = new Size(this.Width, 40);
             Boxtitle.Location = new Point(0, 0);
             Boxtitle.Visible = true;
+            
 
             Boxtext.Text = text;
             Boxtext.Font = new Font("Times New Roman", 10, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -83,26 +87,35 @@ namespace MasterGUI
             Boxtext.Size = new Size(this.Width, 80);
             Boxtext.Location = new Point(0, 40);
             Boxtext.Visible = true;
+          
+
 
             BoxTime.Text = time;
             BoxTime.Location = new Point(0, 120);
             BoxTime.Size = new Size(this.Width, 20);
             BoxTime.Visible = true;
+
+            Boxtext.TextChanged += Boxtext_TextChanged;
+            Boxtitle.TextChanged += Boxtitle_TextChanged;
             this.Controls.Add(BoxTime);
             this.Controls.Add(Boxtext);
             this.Controls.Add(Boxtitle);
             this.Controls.Add(BoxTime);
-            this.Click += CalendarNote_Click;
-            this.Paint += CalendarNote_Paint;
-        }
-        private void CalendarNote_Click(object sender, EventArgs e)
-        {
            
         }
 
-        private void CalendarNote_Paint(object sender, PaintEventArgs e)
+        private void Boxtitle_TextChanged(object sender, EventArgs e)
         {
-          
+            File.WriteAllText("TmpTitle.txt", Boxtitle.Text);
         }
+
+        private void Boxtext_TextChanged(object sender, EventArgs e)
+        {
+            File.WriteAllText("TmpText.txt", Boxtext.Text);
+        }
+
+      
+
+      
     }
 }

@@ -49,7 +49,7 @@
             this.panel1.Controls.Add(this.monthCalendar1);
             this.panel1.Location = new System.Drawing.Point(13, 13);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(689, 366);
+            this.panel1.Size = new System.Drawing.Size(465, 254);
             this.panel1.TabIndex = 0;
             // 
             // panel2
@@ -57,17 +57,17 @@
             this.panel2.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel2.Controls.Add(this.searchButton);
             this.panel2.Controls.Add(this.searchBox);
-            this.panel2.Location = new System.Drawing.Point(13, 385);
+            this.panel2.Location = new System.Drawing.Point(12, 273);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(689, 53);
+            this.panel2.Size = new System.Drawing.Size(466, 53);
             this.panel2.TabIndex = 1;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel3.Location = new System.Drawing.Point(708, 12);
+            this.panel3.Location = new System.Drawing.Point(484, 13);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(193, 366);
+            this.panel3.Size = new System.Drawing.Size(193, 254);
             this.panel3.TabIndex = 2;
             // 
             // panel4
@@ -75,16 +75,15 @@
             this.panel4.Controls.Add(this.settingsBtn);
             this.panel4.Controls.Add(this.delBtn);
             this.panel4.Controls.Add(this.addBtn);
-            this.panel4.Location = new System.Drawing.Point(708, 386);
+            this.panel4.Location = new System.Drawing.Point(484, 273);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(193, 52);
             this.panel4.TabIndex = 3;
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.CalendarDimensions = new System.Drawing.Size(4, 2);
             this.monthCalendar1.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
-            this.monthCalendar1.Location = new System.Drawing.Point(9, 29);
+            this.monthCalendar1.Location = new System.Drawing.Point(129, 49);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
             // 
@@ -92,12 +91,12 @@
             // 
             this.searchBox.Location = new System.Drawing.Point(9, 17);
             this.searchBox.Name = "searchBox";
-            this.searchBox.Size = new System.Drawing.Size(616, 20);
+            this.searchBox.Size = new System.Drawing.Size(403, 20);
             this.searchBox.TabIndex = 0;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(632, 17);
+            this.searchButton.Location = new System.Drawing.Point(418, 16);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(45, 20);
             this.searchButton.TabIndex = 1;
@@ -112,6 +111,7 @@
             this.addBtn.TabIndex = 0;
             this.addBtn.Text = "Add";
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // delBtn
             // 
@@ -136,7 +136,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 450);
+            this.ClientSize = new System.Drawing.Size(693, 350);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);

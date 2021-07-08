@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSettings.Designer.cs">
+      <DependentUpon>AddSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="CalendarNote.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -57,6 +63,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddSettings.resx">
+      <DependentUpon>AddSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

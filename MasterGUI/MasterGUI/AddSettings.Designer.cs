@@ -60,6 +60,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "AddSettings";
             this.Text = "AddSettings";
+            this.Load += new System.EventHandler(this.AddSettings_Load);
             this.ResumeLayout(false);
 
         }

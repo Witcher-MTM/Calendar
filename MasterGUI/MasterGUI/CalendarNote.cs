@@ -10,7 +10,8 @@ namespace MasterGUI
 {
     class CalendarNote:Control
     {
-        private TextBox Boxtitle;
+
+        public TextBox Boxtitle;
         private TextBox Boxtext;
         private TextBox BoxTime;
         public CalendarNote()

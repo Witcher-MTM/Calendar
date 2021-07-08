@@ -131,7 +131,7 @@ namespace MasterGUI
             {
                 panel3.Controls.Remove(notes.Find(x => x.Boxtitle.Text.Equals(textBox1.Text)));
                 notes.Remove(notes.Find(x => x.Boxtitle.Text.Equals(textBox1.Text)));
-                panel3.Controls.AddRange(notes.ToArray());
+              
                
             }
         }

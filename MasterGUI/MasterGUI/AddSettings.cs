@@ -25,20 +25,31 @@ namespace MasterGUI
       
         private void accBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show($"Добавить эту замтеку на {dateTimePicker1.Text}","",MessageBoxButtons.YesNo) == DialogResult.Yes)
+            var a = Manager.notes.Find(x => x.NoteName.Equals(File.ReadAllText("TmpTitle.txt")));
+            if (a == null) 
             {
-                if (note.Boxtext.Text.Length != 0 && note.Boxtitle.Text.Length!=0)
+                if (MessageBox.Show($"Добавить эту замтеку на {dateTimePicker1.Text}", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    Manager.CreateNote(File.ReadAllText("TmpTitle.txt"), File.ReadAllText("TmpText.txt"), dateTimePicker1.Value.Date);
-                  
-                    this.Dispose();
+                    if (note.Boxtext.Text.Length != 0 && note.Boxtitle.Text.Length != 0)
+                    {
+                        Manager.CreateNote(File.ReadAllText("TmpTitle.txt"), File.ReadAllText("TmpText.txt"), dateTimePicker1.Value.Date);
+
+                        this.Dispose();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Невозможно создать пустую заметку");
+                    }
+
                 }
-                else
-                {
-                    MessageBox.Show("Невозможно создать пустую заметку");
-                }
-           
             }
+            else
+            {
+                MessageBox.Show("Такая заметка есть!");
+            }
+           
+            
+          
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
